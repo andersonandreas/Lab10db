@@ -10,89 +10,42 @@ namespace Lab10SchoolChasAcademyDataBase
     {
         static void Main(string[] args)
         {
-            var db = new SchoolChasAcademyDbContext();
+            var context = new SchoolChasAcademyDbContext();
 
-            var allStudents = db.Students.ToList();
+            var studentHelpers = new StudentsHelperFunctions(context);
 
-            foreach (var stud in allStudents)
+            Console.WriteLine("Press the number");
+            Console.WriteLine("1: sort by firstname, 2: sort by lastname, 3: show by class name, 4: add employee");
+            string userInput = Console.ReadLine()!;
+
+            Console.Clear();
+
+
+
+            switch (Convert.ToInt32(userInput))
             {
-                Console.WriteLine(stud);
+                case 1:
+                    studentHelpers.DisplayResults(studentHelpers.SortByFirstName());
+                    break;
+                case 2:
+                    studentHelpers.DisplayResults(studentHelpers.SortByLastName());
+                    break;
+                case 3:
+                    Console.WriteLine("Here are all the clases, search by the class name to get the students in that class");
+                    studentHelpers.ShowAllClasses();
+                    string input = Console.ReadLine()!;
+                    studentHelpers.DisplayResults(studentHelpers.searchByClassName(input));
+                    break;
+                case 4:
+                    break;
+                default:
+                    Console.WriteLine("No input..");
+                    break;
+
             }
 
-            //        public int EmployeeId { get; set; }
-
-            //public string? FirstName { get; set; }
-
-            //public string? LastName { get; set; }
-
-            //public string? EmployeeRole { get; set; }
 
 
-            void addEmployee(string firstName, string lastName, string role)
-            {
-
-
-
-
-            }
-
-
-
-
-
-            //var sortingS = db.Students.Where(s => s.StudentId > 5)
-            //    .Select(i => new { i.PersonNumber, i.FirstName, i.LastName })
-            //    .ToList();
-
-            //foreach (var s in sortingS)
-            //{
-            //    Console.WriteLine($"{s.PersonNumber} {s.FirstName} {s.LastName}");
-            //}
-
-
-            //var allClasses = db.Students.Select(s => s.Class).ToList();
-
-            //int count = 1;
-
-            //foreach (var c in allClasses)
-            //{
-            //    Console.WriteLine($"{count}: {c}");
-            //    count++;
-            //}
-
-            //Console.WriteLine();
-            //Console.Write("Input the number for the class to get back all the students for that class:  ");
-
-            //GetClassStudents(Convert.ToInt32(Console.ReadLine()));
-
-            //void GetClassStudents(int classNum)
-            //{
-            //    if (classNum == 1)
-            //    {
-            //        var sortSClass = db.Students.Where(s => s.Class == "Fullstack .NET").ToList();
-            //        Console.WriteLine();
-
-            //        foreach (var stud in sortSClass)
-            //        {
-            //            Console.WriteLine(stud);
-            //        }
-
-            //    }
-
-
-
-            //}
-
-
-
-            ////string classInfo = "Fullstack .NET";
-
-            ////var sortSClass = db.Students.Where(s => s.Class == classInfo).ToList();
-
-            ////foreach (var stud in sortSClass)
-            ////{
-            ////    Console.WriteLine(stud);
-            ////}
 
 
 
