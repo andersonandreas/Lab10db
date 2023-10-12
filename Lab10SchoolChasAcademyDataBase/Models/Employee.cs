@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Lab10SchoolChasAcademyDataBase.Models;
+﻿namespace Lab10SchoolChasAcademyDataBase.Models;
 
 public partial class Employee
 {
@@ -12,4 +9,6 @@ public partial class Employee
     public string? LastName { get; set; }
 
     public string? EmployeeRole { get; set; }
+
+
 }
