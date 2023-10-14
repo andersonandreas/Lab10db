@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Lab10SchoolChasAcademyDataBase.Models;
+﻿namespace Lab10SchoolChasAcademyDataBase.Models;
 
 public partial class Grade
 {

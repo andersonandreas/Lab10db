@@ -16,8 +16,7 @@ namespace Lab10SchoolChasAcademyDataBase
                 while (continueApp)
                 {
                     Console.Clear();
-                    Console.WriteLine("Enter the number for the that thing to do below: ");
-                    Console.Write("1: sort by firstname \n2: sort by lastname \n3: show by class name \n4: add employee\n5: show employees in school\n");
+                    Console.Write("Type 1 to Sort by firstname. \nType 2 to Sort by lastname. \nType 3 to Show by class name. \nType 4 to Add an employee.\nType 5 to Show all employees.\n");
                     string userInput = Console.ReadLine()!;
 
 
@@ -33,7 +32,7 @@ namespace Lab10SchoolChasAcademyDataBase
                                 studentHelpers.DisplayResults(studentHelpers.SortByLastName());
                                 break;
                             case 3:
-                                Console.WriteLine("Here are all the clases, search by the class name to get the students in that class");
+                                Console.WriteLine("Type the class name to Get back the students in that class.");
                                 studentHelpers.ShowAllClasses();
                                 studentHelpers.DisplayResults(studentHelpers.searchByClassName(Console.ReadLine()!));
                                 break;
@@ -55,7 +54,7 @@ namespace Lab10SchoolChasAcademyDataBase
                         Console.WriteLine("No valid input..");
                     }
 
-                    Console.Write("want to do so more searching? y/n: ");
+                    Console.Write("Want to do so more searching? y/n: ");
                     string userChoice = Console.ReadLine();
                     if (userChoice?.Trim().ToLower() != "y")
                     {

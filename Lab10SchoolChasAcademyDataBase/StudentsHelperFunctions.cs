@@ -48,7 +48,7 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             try
             {
-                Console.WriteLine($"\nSearching for the stundents in ({className}) class..");
+                Console.WriteLine($"\nSearching for the stundents in class ({className})....");
                 return _context.Students.Where(s => s.Class == className).ToList();
 
 
@@ -85,7 +85,7 @@ namespace Lab10SchoolChasAcademyDataBase
                     Console.WriteLine("No students to show");
                 }
 
-                Console.WriteLine("\nStudents:");
+
                 Console.WriteLine("-------------------------------------------");
 
                 foreach (var stud in students!)
@@ -124,6 +124,10 @@ namespace Lab10SchoolChasAcademyDataBase
             }
 
         }
+
+
+
+
 
     }
 }
