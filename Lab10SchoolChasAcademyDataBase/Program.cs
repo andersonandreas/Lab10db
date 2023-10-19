@@ -19,7 +19,6 @@ namespace Lab10SchoolChasAcademyDataBase
                     Console.Write("Type 1 to Sort by firstname. \nType 2 to Sort by lastname. \nType 3 to Show by class name. \nType 4 to Add an employee.\nType 5 to Show all employees.\n");
                     string userInput = Console.ReadLine()!;
 
-
                     if (int.TryParse(userInput, out int input))
                     {
 
