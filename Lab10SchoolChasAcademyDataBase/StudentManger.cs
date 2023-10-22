@@ -2,11 +2,11 @@
 
 namespace Lab10SchoolChasAcademyDataBase
 {
-    internal class StudentsHelperFunctions
+    internal class StudentManger
     {
         private readonly SchoolChasAcademyDbContext _context;
 
-        public StudentsHelperFunctions(SchoolChasAcademyDbContext dbContext)
+        public StudentManger(SchoolChasAcademyDbContext dbContext)
         {
             _context = dbContext;
         }
@@ -103,27 +103,6 @@ namespace Lab10SchoolChasAcademyDataBase
 
         }
 
-        public void AddEmployee(string firstName, string lastName, string empRole)
-        {
-            try
-            {
-                var newEmp = new Employee
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    EmployeeRole = empRole
-                };
-
-                _context.Employees.Add(newEmp);
-                _context.SaveChanges();
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine($"Error: {e.Message}");
-            }
-
-        }
 
 
 

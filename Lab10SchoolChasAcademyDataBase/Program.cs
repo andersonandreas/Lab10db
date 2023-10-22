@@ -8,7 +8,8 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             using (var context = new SchoolChasAcademyDbContext())
             {
-                var studentHelpers = new StudentsHelperFunctions(context);
+                var student = new StudentManger(context);
+                var emp = new EmpManager(context);
 
                 bool continueApp = true;
 
@@ -25,21 +26,21 @@ namespace Lab10SchoolChasAcademyDataBase
                         switch (input)
                         {
                             case 1:
-                                studentHelpers.DisplayResults(studentHelpers.SortByFirstName());
+                                student.DisplayResults(student.SortByFirstName());
                                 break;
                             case 2:
-                                studentHelpers.DisplayResults(studentHelpers.SortByLastName());
+                                student.DisplayResults(student.SortByLastName());
                                 break;
                             case 3:
                                 Console.WriteLine("Type the class name to Get back the students in that class.");
-                                studentHelpers.ShowAllClasses();
-                                studentHelpers.DisplayResults(studentHelpers.searchByClassName(Console.ReadLine()!));
+                                student.ShowAllClasses();
+                                student.DisplayResults(student.searchByClassName(Console.ReadLine()!));
                                 break;
                             case 4:
-                                CreateEmp();
+                                emp.CreateEmp();
                                 break;
                             case 5:
-                                ShowEmp();
+                                emp.ShowEmp();
                                 break;
                             default:
                                 Console.WriteLine("No input..");
@@ -64,31 +65,9 @@ namespace Lab10SchoolChasAcademyDataBase
 
                 }
 
-                void CreateEmp()
-                {
-                    Console.WriteLine("Enter firstname: ");
-                    string fName = Console.ReadLine()!;
-                    Console.WriteLine("Enter lastname: ");
-                    string lName = Console.ReadLine()!;
-                    Console.WriteLine("Enter your role: ");
-                    string role = Console.ReadLine()!;
-
-                    studentHelpers.AddEmployee(fName, lName, role);
-                    Console.WriteLine("Employee added");
 
 
-                }
 
-                void ShowEmp()
-                {
-                    Console.WriteLine("\nEmployees in school:");
-                    Console.WriteLine("-------------------------------------------");
-                    foreach (var emp in context.Employees)
-                    {
-                        Console.WriteLine(emp);
-                    }
-                    Console.WriteLine("-------------------------------------------");
-                }
             }
 
 
