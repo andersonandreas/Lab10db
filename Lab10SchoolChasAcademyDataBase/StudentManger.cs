@@ -2,7 +2,7 @@
 
 namespace Lab10SchoolChasAcademyDataBase
 {
-    internal class StudentManger
+    public class StudentManger
     {
         private readonly SchoolChasAcademyDbContext _context;
 
@@ -106,6 +106,18 @@ namespace Lab10SchoolChasAcademyDataBase
 
 
 
+
+
+        public void InSameClass()
+        {
+
+            ShowAllClasses();
+            // need to fix this
+            Console.WriteLine("Type the class name to Get back the students in that class.");
+            DisplayResults(searchByClassName(Console.ReadLine()));
+
+
+        }
 
 
     }

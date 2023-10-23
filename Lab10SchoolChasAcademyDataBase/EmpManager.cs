@@ -24,7 +24,6 @@ namespace Lab10SchoolChasAcademyDataBase
             AddEmployee(fName, lName, role);
             Console.WriteLine("Employee added");
 
-
         }
         public void AddEmployee(string firstName, string lastName, string empRole)
         {
@@ -47,6 +46,8 @@ namespace Lab10SchoolChasAcademyDataBase
             }
 
         }
+
+        // i know this should be in a like show class for just printing. = single responsibliy principle for each class
         public void ShowEmp()
         {
             Console.WriteLine("\nEmployees in school:");
