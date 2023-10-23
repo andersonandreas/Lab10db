@@ -103,11 +103,6 @@ namespace Lab10SchoolChasAcademyDataBase
 
         }
 
-
-
-
-
-
         public void InSameClass()
         {
 

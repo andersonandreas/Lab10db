@@ -21,7 +21,11 @@
             do
             {
                 Console.Clear();
-                Console.Write("Type 1 to Sort by firstname. \nType 2 to Sort by lastname. \nType 3 to Show by class name. \nType 4 to Add an employee.\nType 5 to Show all employees.\n");
+                Console.Write("Type 1 to Sort by firstname. " +
+                    "\nType 2 to Sort by lastname. " +
+                    "\nType 3 to Show by class name. " +
+                    "\nType 4 to Add an employee." +
+                    "\nType 5 to Show all employees.\n");
 
             } while (!int.TryParse(Console.ReadLine(), out choice));
 
@@ -32,66 +36,41 @@
 
         public void PrintResultFromChoice()
         {
-            var userChoice = Choice();
-
-            switch (userChoice)
-            {
-                case 1:
-                    // fix a own class for printing
-                    _studentManger.DisplayResults(_studentManger.SortByFirstName());
-                    break;
-                case 2:
-                    _studentManger.DisplayResults(_studentManger.SortByLastName());
-                    break;
-                case 3:
-                    _studentManger.InSameClass();
-                    break;
-                case 4:
-                    _empManager.CreateEmp();
-                    break;
-                case 5:
-                    _empManager.ShowEmp();
-                    break;
-
-            }
-
-            var continueSearhing = ContinueSearching();
-
-            if (continueSearhing)
-            {
-                PrintResultFromChoice();
-
-            }
-
-            return;
-        }
-
-
-        private static bool ContinueSearching()
-        {
-
-            string? input;
+            int userChoice;
 
             do
             {
-                Console.Write("Want to do so more searching? y/n: ");
-                input = Console.ReadLine()?.Trim();
+                userChoice = Choice();
 
-                if (input == "y")
+                switch (userChoice)
                 {
-                    return true;
+                    case 1:
+                        // fixa en egen klass för utskrift
+                        _studentManger.DisplayResults(_studentManger.SortByFirstName());
+                        break;
+                    case 2:
+                        _studentManger.DisplayResults(_studentManger.SortByLastName());
+                        break;
+                    case 3:
+                        _studentManger.InSameClass();
+                        break;
+                    case 4:
+                        _empManager.CreateEmp();
+                        break;
+                    case 5:
+                        _empManager.ShowEmp();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input. Enter a number between 1 and 5.");
+                        break;
                 }
-                else if (input == "n")
-                {
-                    return false;
-                }
 
-                continue;
+                Console.WriteLine("Press any key to continue or N to exit.");
 
-
-            } while (true);
-
+            } while (Console.ReadKey().Key != ConsoleKey.N);
         }
+
+
 
     }
 }
