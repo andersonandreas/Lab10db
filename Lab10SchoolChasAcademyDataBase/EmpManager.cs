@@ -12,6 +12,7 @@ namespace Lab10SchoolChasAcademyDataBase
             _context = dbContext;
         }
 
+
         public void CreateEmp()
         {
             Console.WriteLine("Enter firstname: ");

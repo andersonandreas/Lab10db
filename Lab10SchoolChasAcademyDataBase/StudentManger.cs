@@ -48,7 +48,7 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             try
             {
-                Console.WriteLine($"\nSearching for the stundents in class ({className})....");
+                Console.WriteLine($"\nSearching for the stundents in class ({className}).");
                 return _context.Students.Where(s => s.Class == className).ToList();
 
 
@@ -59,19 +59,6 @@ namespace Lab10SchoolChasAcademyDataBase
                 Console.WriteLine($"Error: {e.Message}");
                 return null;
             }
-        }
-
-        public void ShowAllClasses()
-        {
-            int count = 1;
-            Console.WriteLine("-------------------------------------------");
-
-            foreach (var c in _context.Students)
-            {
-                Console.WriteLine($"{count}: {c.Class}");
-                count++;
-            }
-            Console.WriteLine("-------------------------------------------");
         }
 
         public void DisplayResults(List<Student> students)
@@ -101,6 +88,19 @@ namespace Lab10SchoolChasAcademyDataBase
                 Console.WriteLine($"Error: {e.Message}");
             }
 
+        }
+
+        public void ShowAllClasses()
+        {
+            int count = 1;
+            Console.WriteLine("-------------------------------------------");
+
+            foreach (var c in _context.Students)
+            {
+                Console.WriteLine($"{count}: {c.Class}");
+                count++;
+            }
+            Console.WriteLine("-------------------------------------------");
         }
 
         public void InSameClass()

@@ -21,18 +21,17 @@
             do
             {
                 Console.Clear();
-                Console.Write("Type 1 to Sort by firstname. " +
-                    "\nType 2 to Sort by lastname. " +
-                    "\nType 3 to Show by class name. " +
-                    "\nType 4 to Add an employee." +
-                    "\nType 5 to Show all employees.\n");
+                Console.Write("Enter 1 to Sort by firstname. " +
+                    "\nEnter 2 to Sort by lastname. " +
+                    "\nEnter 3 to Show by class name. " +
+                    "\nEnter 4 to Add an employee." +
+                    "\nEnter 5 to Show all employees.\n");
 
             } while (!int.TryParse(Console.ReadLine(), out choice));
 
 
             return choice;
         }
-
 
         public void PrintResultFromChoice()
         {
@@ -69,8 +68,6 @@
 
             } while (Console.ReadKey().Key != ConsoleKey.N);
         }
-
-
 
     }
 }

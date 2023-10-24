@@ -12,7 +12,6 @@ namespace Lab10SchoolChasAcademyDataBase
                 var emp = new EmpManager(context);
 
                 var user = new UserManager(student, emp);
-
                 user.PrintResultFromChoice();
 
 
