@@ -8,15 +8,20 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             using (var context = new SchoolChasAcademyDbContext())
             {
-                var student = new StudentManger(context);
-                var emp = new EmpManager(context);
+                try
+                {
+                    var student = new StudentManger(context);
+                    var emp = new EmpManager(context);
 
-                var user = new UserManager(student, emp);
-                user.PrintResultFromChoice();
+                    var user = new UserManager(student, emp);
+                    user.PrintResultFromChoice();
 
+                }
+                catch (Exception ex)
+                {
 
-
-
+                    Console.WriteLine("Something went wrong and the application is closing. " + ex.Message);
+                }
 
             }
 

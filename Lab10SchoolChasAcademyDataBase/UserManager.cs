@@ -13,7 +13,6 @@
 
         }
 
-
         private static int Choice()
         {
             int choice;
@@ -44,7 +43,6 @@
                 switch (userChoice)
                 {
                     case 1:
-                        // fixa en egen klass för utskrift
                         _studentManger.DisplayResults(_studentManger.SortByFirstName());
                         break;
                     case 2:
