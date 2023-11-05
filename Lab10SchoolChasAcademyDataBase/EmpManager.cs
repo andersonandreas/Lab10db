@@ -1,4 +1,5 @@
-﻿using Lab10SchoolChasAcademyDataBase.Models;
+﻿using Lab10SchoolChasAcademyDataBase.Data;
+using Lab10SchoolChasAcademyDataBase.Models;
 
 namespace Lab10SchoolChasAcademyDataBase
 {
@@ -6,14 +7,15 @@ namespace Lab10SchoolChasAcademyDataBase
     {
 
         private readonly SchoolChasAcademyDbContext _context;
+        private readonly string line = "-------------------------------------------";
 
         public EmpManager(SchoolChasAcademyDbContext dbContext)
         {
             _context = dbContext;
         }
 
-
-        public void CreateEmp()
+        // we need to add error checking here so the u
+        public void CreateEmployee()
         {
             Console.WriteLine("Enter firstname: ");
             string fName = Console.ReadLine()!;
@@ -30,14 +32,14 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             try
             {
-                var newEmp = new Employee
+                var employee = new Employee
                 {
                     FirstName = firstName,
                     LastName = lastName,
                     EmployeeRole = empRole
                 };
 
-                _context.Employees.Add(newEmp);
+                _context.Employees.Add(employee);
                 _context.SaveChanges();
             }
             catch (Exception e)
@@ -49,15 +51,16 @@ namespace Lab10SchoolChasAcademyDataBase
         }
 
         // i know this should be in a like show class for just printing. = single responsibliy principle for each class
-        public void ShowEmp()
+        public void ShowEmployee()
         {
             Console.WriteLine("\nEmployees in school:");
-            Console.WriteLine("-------------------------------------------");
-            foreach (var emp in _context.Employees)
-            {
-                Console.WriteLine(emp);
-            }
-            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine(line);
+
+            var emp = _context.Employees
+            .Select(emp => emp);
+
+            Console.WriteLine(string.Join(Environment.NewLine, emp));
+            Console.WriteLine(line);
         }
 
     }

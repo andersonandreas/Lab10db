@@ -1,115 +1,73 @@
-﻿using Lab10SchoolChasAcademyDataBase.Models;
+﻿using Lab10SchoolChasAcademyDataBase.Data;
+using Lab10SchoolChasAcademyDataBase.Models;
 
 namespace Lab10SchoolChasAcademyDataBase
 {
     public class StudentManger
     {
         private readonly SchoolChasAcademyDbContext _context;
+        private readonly string line = "-------------------------------------------";
 
         public StudentManger(SchoolChasAcademyDbContext dbContext)
         {
             _context = dbContext;
         }
 
-        public List<Student> SortByFirstName()
+        public List<Student> SortByFirstName() =>
+            _context.Students.OrderBy(a => a.FirstName).ToList();
+
+
+        public List<Student> SortByLastName() =>
+            _context.Students.OrderBy(a => a.LastName).ToList();
+
+
+        public List<Student> SearchByClassName(string className)
         {
-
-            try
-            {
-
-                return _context.Students.OrderBy(a => a.FirstName).ToList();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error: {e.Message}");
-                return null;
-            }
+            Console.WriteLine($"\nSearching for the stundents in class ({className}).");
+            return _context.Students.Where(s => s.Class == className).ToList();
         }
 
-        public List<Student> SortByLastName()
+        public void ShowSelectedUserChoice(List<Student> studentsList)
         {
 
-            try
+            if (studentsList == null)
             {
-                return _context.Students.OrderBy(a => a.LastName).ToList();
-
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine($"Error: {e.Message}");
-                return null;
+                Console.WriteLine("No students to show");
+                return;
             }
 
-        }
+            Console.WriteLine();
+            Console.WriteLine(line);
 
-        public List<Student> searchByClassName(string className)
-        {
-            try
-            {
-                Console.WriteLine($"\nSearching for the stundents in class ({className}).");
-                return _context.Students.Where(s => s.Class == className).ToList();
+            var students = studentsList
+                .Select(s => $"{s.FirstName} {s.LastName}");
 
+            Console.WriteLine
+                (string.Join(Environment.NewLine, students));
 
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine($"Error: {e.Message}");
-                return null;
-            }
-        }
-
-        public void DisplayResults(List<Student> students)
-        {
-
-            try
-            {
-
-                if (students == null)
-                {
-                    Console.WriteLine("No students to show");
-                }
-
-
-                Console.WriteLine("-------------------------------------------");
-
-                foreach (var stud in students!)
-                {
-                    Console.WriteLine($"{stud.FirstName} {stud.LastName}");
-
-                }
-                Console.WriteLine("-------------------------------------------");
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine($"Error: {e.Message}");
-            }
-
+            Console.WriteLine(line);
         }
 
         public void ShowAllClasses()
         {
-            int count = 1;
-            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine(line);
 
-            foreach (var c in _context.Students)
-            {
-                Console.WriteLine($"{count}: {c.Class}");
-                count++;
-            }
-            Console.WriteLine("-------------------------------------------");
+            var printAllToConsole = _context.Students.ToList()
+                .Select((s, Index) => $"{Index + 1}: {s.Class}");
+
+            Console.WriteLine(
+                string.Join(Environment.NewLine, printAllToConsole));
+
+            Console.WriteLine(line);
         }
 
-        public void InSameClass()
+        public void SearchInSpecificClass()
         {
 
             ShowAllClasses();
             // need to fix this
             Console.WriteLine("Type the class name to Get back the students in that class.");
-            DisplayResults(searchByClassName(Console.ReadLine()));
+            ShowSelectedUserChoice(SearchByClassName(Console.ReadLine()));
 
 
         }

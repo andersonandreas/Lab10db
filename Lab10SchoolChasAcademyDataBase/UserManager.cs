@@ -5,12 +5,10 @@
         private readonly StudentManger _studentManger;
         private readonly EmpManager _empManager;
 
-
         public UserManager(StudentManger studentManger, EmpManager empManager)
         {
             _studentManger = studentManger;
             _empManager = empManager;
-
         }
 
         private static int Choice()
@@ -28,7 +26,6 @@
 
             } while (!int.TryParse(Console.ReadLine(), out choice));
 
-
             return choice;
         }
 
@@ -43,19 +40,19 @@
                 switch (userChoice)
                 {
                     case 1:
-                        _studentManger.DisplayResults(_studentManger.SortByFirstName());
+                        _studentManger.ShowSelectedUserChoice(_studentManger.SortByFirstName());
                         break;
                     case 2:
-                        _studentManger.DisplayResults(_studentManger.SortByLastName());
+                        _studentManger.ShowSelectedUserChoice(_studentManger.SortByLastName());
                         break;
                     case 3:
-                        _studentManger.InSameClass();
+                        _studentManger.SearchInSpecificClass();
                         break;
                     case 4:
-                        _empManager.CreateEmp();
+                        _empManager.CreateEmployee();
                         break;
                     case 5:
-                        _empManager.ShowEmp();
+                        _empManager.ShowEmployee();
                         break;
                     default:
                         Console.WriteLine("Invalid Input. Enter a number between 1 and 5.");

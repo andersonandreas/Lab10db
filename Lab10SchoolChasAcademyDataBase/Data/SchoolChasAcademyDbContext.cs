@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Lab10SchoolChasAcademyDataBase.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Lab10SchoolChasAcademyDataBase.Models;
+namespace Lab10SchoolChasAcademyDataBase.Data;
 
 public partial class SchoolChasAcademyDbContext : DbContext
 {

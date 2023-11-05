@@ -1,4 +1,4 @@
-﻿using Lab10SchoolChasAcademyDataBase.Models;
+﻿using Lab10SchoolChasAcademyDataBase.Data;
 
 namespace Lab10SchoolChasAcademyDataBase
 {
@@ -15,6 +15,7 @@ namespace Lab10SchoolChasAcademyDataBase
 
                     var user = new UserManager(student, emp);
                     user.PrintResultFromChoice();
+                    Console.ReadKey();
 
                 }
                 catch (Exception ex)
