@@ -1,11 +1,11 @@
 ﻿namespace Lab10SchoolChasAcademyDataBase
 {
-    public class UserManager
+    public class UserHandler
     {
-        private readonly StudentManger _studentManger;
-        private readonly EmpManager _empManager;
+        private readonly StudentHandler _studentManger;
+        private readonly EmployeeHandler _empManager;
 
-        public UserManager(StudentManger studentManger, EmpManager empManager)
+        public UserHandler(StudentHandler studentManger, EmployeeHandler empManager)
         {
             _studentManger = studentManger;
             _empManager = empManager;
@@ -29,7 +29,7 @@
             return choice;
         }
 
-        public void PrintResultFromChoice()
+        public void Run()
         {
             int userChoice;
 

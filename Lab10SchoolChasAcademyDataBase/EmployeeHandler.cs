@@ -4,13 +4,13 @@ using Lab10SchoolChasAcademyDataBase.Validator;
 
 namespace Lab10SchoolChasAcademyDataBase
 {
-    public class EmpManager
+    public class EmployeeHandler
     {
 
         private readonly SchoolChasAcademyDbContext _context;
         private readonly string line = "-------------------------------------------";
 
-        public EmpManager(SchoolChasAcademyDbContext dbContext)
+        public EmployeeHandler(SchoolChasAcademyDbContext dbContext)
         {
             _context = dbContext;
         }
@@ -20,9 +20,9 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             string[] employee = new string[3];
 
-            employee[0] = CheckUserInput.ValidateInput();
-            employee[1] = CheckUserInput.ValidLastName();
-            employee[2] = CheckUserInput.EmployeeRole();
+            employee[0] = ValidateUserInput.FirstName();
+            employee[1] = ValidateUserInput.LastName();
+            employee[2] = ValidateUserInput.EmployeeRole();
 
             AddEmployee(employee);
             Console.WriteLine($"The new employee {employee[0]} {employee[1]} is added. Welcome.\n");

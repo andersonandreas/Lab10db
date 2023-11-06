@@ -1,14 +1,15 @@
 ﻿using Lab10SchoolChasAcademyDataBase.Data;
 using Lab10SchoolChasAcademyDataBase.Models;
+using Lab10SchoolChasAcademyDataBase.Validator;
 
 namespace Lab10SchoolChasAcademyDataBase
 {
-    public class StudentManger
+    public class StudentHandler
     {
         private readonly SchoolChasAcademyDbContext _context;
         private readonly string line = "-------------------------------------------";
 
-        public StudentManger(SchoolChasAcademyDbContext dbContext)
+        public StudentHandler(SchoolChasAcademyDbContext dbContext)
         {
             _context = dbContext;
         }
@@ -48,7 +49,7 @@ namespace Lab10SchoolChasAcademyDataBase
             Console.WriteLine(line);
         }
 
-        public void ShowAllClasses()
+        private void ShowAllClasses()
         {
             Console.WriteLine(line);
 
@@ -63,16 +64,15 @@ namespace Lab10SchoolChasAcademyDataBase
 
         public void SearchInSpecificClass()
         {
-
             ShowAllClasses();
-            // need to fix this
-            Console.WriteLine("Type the class name to Get back the students in that class.");
-            ShowSelectedUserChoice(SearchByClassName(Console.ReadLine()));
+            Console.WriteLine("Enter the class name, and get the students in that class.");
 
-
+            var choice = ValidateUserInput.InClassSearch();
+            ShowSelectedUserChoice(SearchByClassName(choice));
         }
-
-
     }
+
+
 }
+
 

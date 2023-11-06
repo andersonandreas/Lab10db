@@ -11,11 +11,11 @@ namespace Lab10SchoolChasAcademyDataBase
 
                 try
                 {
-                    var student = new StudentManger(context);
-                    var emp = new EmpManager(context);
+                    var student = new StudentHandler(context);
+                    var emp = new EmployeeHandler(context);
 
-                    var user = new UserManager(student, emp);
-                    user.PrintResultFromChoice();
+                    var user = new UserHandler(student, emp);
+                    user.Run();
 
                 }
                 catch (Exception ex)
