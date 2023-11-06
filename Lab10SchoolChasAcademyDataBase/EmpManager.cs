@@ -1,5 +1,6 @@
 ﻿using Lab10SchoolChasAcademyDataBase.Data;
 using Lab10SchoolChasAcademyDataBase.Models;
+using Lab10SchoolChasAcademyDataBase.Validator;
 
 namespace Lab10SchoolChasAcademyDataBase
 {
@@ -14,29 +15,30 @@ namespace Lab10SchoolChasAcademyDataBase
             _context = dbContext;
         }
 
-        // we need to add error checking here so the u
-        public void CreateEmployee()
-        {
-            Console.WriteLine("Enter firstname: ");
-            string fName = Console.ReadLine()!;
-            Console.WriteLine("Enter lastname: ");
-            string lName = Console.ReadLine()!;
-            Console.WriteLine("Enter your role: ");
-            string role = Console.ReadLine()!;
 
-            AddEmployee(fName, lName, role);
-            Console.WriteLine("Employee added");
+        public void PrintConsoleAddEmployee()
+        {
+            string[] employee = new string[3];
+
+            employee[0] = CheckUserInput.ValidateInput();
+            employee[1] = CheckUserInput.ValidLastName();
+            employee[2] = CheckUserInput.EmployeeRole();
+
+            AddEmployee(employee);
+            Console.WriteLine($"The new employee {employee[0]} {employee[1]} is added. Welcome.\n");
 
         }
-        public void AddEmployee(string firstName, string lastName, string empRole)
+
+
+        private void AddEmployee(string[] newEmployee)
         {
             try
             {
                 var employee = new Employee
                 {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    EmployeeRole = empRole
+                    FirstName = newEmployee[0],
+                    LastName = newEmployee[1],
+                    EmployeeRole = newEmployee[2]
                 };
 
                 _context.Employees.Add(employee);

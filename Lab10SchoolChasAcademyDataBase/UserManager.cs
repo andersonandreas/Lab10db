@@ -49,7 +49,7 @@
                         _studentManger.SearchInSpecificClass();
                         break;
                     case 4:
-                        _empManager.CreateEmployee();
+                        _empManager.PrintConsoleAddEmployee();
                         break;
                     case 5:
                         _empManager.ShowEmployee();

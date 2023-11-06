@@ -8,6 +8,7 @@ namespace Lab10SchoolChasAcademyDataBase
         {
             using (var context = new SchoolChasAcademyDbContext())
             {
+
                 try
                 {
                     var student = new StudentManger(context);
@@ -15,7 +16,6 @@ namespace Lab10SchoolChasAcademyDataBase
 
                     var user = new UserManager(student, emp);
                     user.PrintResultFromChoice();
-                    Console.ReadKey();
 
                 }
                 catch (Exception ex)
@@ -24,11 +24,14 @@ namespace Lab10SchoolChasAcademyDataBase
                     Console.WriteLine("Something went wrong and the application is closing. " + ex.Message);
                 }
 
+
+
+
             }
 
         }
 
-    }
 
+    }
 
 }
