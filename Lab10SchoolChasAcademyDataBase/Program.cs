@@ -20,14 +20,13 @@ namespace Lab10SchoolChasAcademyDataBase
                 }
                 catch (Exception ex)
                 {
-
                     Console.WriteLine("Something went wrong and the application is closing. " + ex.Message);
                 }
 
 
-
-
             }
+
+
 
         }
 
