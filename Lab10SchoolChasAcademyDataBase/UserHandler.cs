@@ -11,24 +11,6 @@
             _empManager = empManager;
         }
 
-        private static int Choice()
-        {
-            int choice;
-
-            do
-            {
-                Console.Clear();
-                Console.Write("Enter 1 to Sort by firstname. " +
-                    "\nEnter 2 to Sort by lastname. " +
-                    "\nEnter 3 to Show by class name. " +
-                    "\nEnter 4 to Add an employee." +
-                    "\nEnter 5 to Show all employees.\n");
-
-            } while (!int.TryParse(Console.ReadLine(), out choice));
-
-            return choice;
-        }
-
 
         public void Run()
         {
@@ -65,6 +47,24 @@
             } while (Console.ReadKey().Key != ConsoleKey.N);
         }
 
+
+        private static int Choice()
+        {
+            int choice;
+
+            do
+            {
+                Console.Clear();
+                Console.Write("Enter 1 to Sort by firstname. " +
+                    "\nEnter 2 to Sort by lastname. " +
+                    "\nEnter 3 to Show by class name. " +
+                    "\nEnter 4 to Add an employee." +
+                    "\nEnter 5 to Show all employees.\n");
+
+            } while (!int.TryParse(Console.ReadLine(), out choice));
+
+            return choice;
+        }
 
 
     }

@@ -5,6 +5,16 @@ namespace Lab10SchoolChasAcademyDataBase.Validator
     public static class ValidateUserInput
     {
 
+
+        public static string FirstName() =>
+            ValidateInput("firstName", 2, 35);
+        public static string LastName() =>
+            ValidateInput("lastName", 2, 35);
+
+        public static string EmployeeRole() =>
+            ValidateInput("role", 2, 50);
+
+
         public static string? InClassSearch()
         {
             string input = Console.ReadLine().Trim();
@@ -17,16 +27,6 @@ namespace Lab10SchoolChasAcademyDataBase.Validator
             input = Regex.Replace(input, @"\s+", " ");
             return input;
         }
-
-
-        public static string FirstName() =>
-            ValidateInput("firstName", 2, 35);
-        public static string LastName() =>
-            ValidateInput("lastName", 2, 35);
-
-        public static string EmployeeRole() =>
-            ValidateInput("role", 2, 50);
-
 
         private static string ValidateInput(string promtUser, int minLength, int maxLength)
         {

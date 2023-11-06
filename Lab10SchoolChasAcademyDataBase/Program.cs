@@ -12,9 +12,9 @@ namespace Lab10SchoolChasAcademyDataBase
                 try
                 {
                     var student = new StudentHandler(context);
-                    var emp = new EmployeeHandler(context);
+                    var employee = new EmployeeHandler(context);
 
-                    var user = new UserHandler(student, emp);
+                    var user = new UserHandler(student, employee);
                     user.Run();
 
                 }
