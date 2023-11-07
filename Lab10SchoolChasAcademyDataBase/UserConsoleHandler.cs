@@ -1,11 +1,11 @@
 ﻿namespace Lab10SchoolChasAcademyDataBase
 {
-    public class UserHandler
+    public class UserConsoleHandler
     {
         private readonly StudentHandler _studentManger;
         private readonly EmployeeHandler _empManager;
 
-        public UserHandler(StudentHandler studentManger, EmployeeHandler empManager)
+        public UserConsoleHandler(StudentHandler studentManger, EmployeeHandler empManager)
         {
             _studentManger = studentManger;
             _empManager = empManager;
@@ -42,9 +42,9 @@
                         break;
                 }
 
-                Console.WriteLine("Press any key to continue or N to exit.");
+                Console.WriteLine("Press any key to continue or ESC to exit.");
 
-            } while (Console.ReadKey().Key != ConsoleKey.N);
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
         }
 
 
@@ -65,6 +65,7 @@
 
             return choice;
         }
+
 
 
     }

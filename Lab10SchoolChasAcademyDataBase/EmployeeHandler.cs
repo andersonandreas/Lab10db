@@ -25,7 +25,7 @@ namespace Lab10SchoolChasAcademyDataBase
             employee[2] = ValidateUserInput.EmployeeRole();
 
             AddEmployee(employee);
-            Console.WriteLine($"The new employee {employee[0]} {employee[1]} is added. Welcome.\n");
+            Console.WriteLine($"The new employee {employee[0]} {employee[1]}, added to the database.\n");
 
         }
 
@@ -53,6 +53,7 @@ namespace Lab10SchoolChasAcademyDataBase
         }
 
         // i know this should be in a like show class for just printing. = single responsibliy principle for each class
+        // its more mehtods in this program that i should have moved to a clas just taking care of printing to console..
         public void ShowEmployee()
         {
             Console.WriteLine("\nEmployees in school:");

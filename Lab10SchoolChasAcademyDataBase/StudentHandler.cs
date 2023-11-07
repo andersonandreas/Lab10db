@@ -54,7 +54,9 @@ namespace Lab10SchoolChasAcademyDataBase
             Console.WriteLine(line);
 
             var printAllToConsole = _context.Students.ToList()
-                .Select((s, Index) => $"{Index + 1}: {s.Class}");
+                .Select(s => s.Class)
+                .Distinct()
+                .Select((c, Index) => $"{Index + 1}: {c}");
 
             Console.WriteLine(
                 string.Join(Environment.NewLine, printAllToConsole));

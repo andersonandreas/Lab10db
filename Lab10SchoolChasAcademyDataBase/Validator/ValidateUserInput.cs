@@ -40,7 +40,8 @@ namespace Lab10SchoolChasAcademyDataBase.Validator
                 input = Console.ReadLine().Trim();
                 input = Regex.Replace(input, @"\s+", " ");
 
-                if (!string.IsNullOrEmpty(input) && input.Length >= minLength && input.Length < maxLength && OnlyCharAllowed(input))
+                if (!string.IsNullOrEmpty(input) && input.Length >= minLength
+                    && input.Length < maxLength && OnlyCharAllowed(input))
                 {
                     valid = true;
                 }
